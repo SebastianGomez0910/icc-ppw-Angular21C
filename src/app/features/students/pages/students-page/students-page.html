@@ -1,0 +1,12 @@
+<h1>Students Page</h1>
+<p>selecciona el estudiante para ver su detalle.</p>
+<ul>
+    @for(estudiante of students(); track estudiante.id){
+        <li>
+            <!-- esta es una manera de navegar-->
+            <a [routerLink]="['/students', estudiante.id]">{{estudiante.name}}</a>
+        </li>
+    }@empty {
+        <li>Listaod VACIO</li>
+    }
+</ul>
