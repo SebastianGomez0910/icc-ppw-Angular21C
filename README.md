@@ -1,59 +1,33 @@
-# PpwAngular
+# Layouts Adicionales
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+### 01. GRID-FLOW-DENSE
+Optimiza el espacio de la cuadrícula, permite que los elementos pequeños alteron su orden original para rellenar los espacios en blancos dejados por las tarejas mas grandes
 
-## Development server
+- Vista de PC
+![01. grid-flow-dense Vista pc](assets/01Vpc.png)
+ - Vitsa de dispositivo Movil
+ ![01. grid-flow-dense Vista movil](assets/01Vmo.png)
 
-To start a local development server, run:
+### 0.2 FLEX BASIS
+Define el tamaño inicial de un elemento flex. Combinado con flex-wrap y grow, crea distribuciones fluidad y asimétricas sin usar Grid.
+- Vista de Pc
+![02. flex basis Vista pc](assets/02-Vpc.png)
+- Vista de dispositivo Movil
+![02. flex basis Vista movil](assets/02Vmo.png)
 
-```bash
-ng serve
-```
+### 0.3 GRID COLUMN (SPANS)
+Controla el tamaño horizontal específico de cada tarjeta y su posiciónde inicio en la cuadricula. Es la herramienta clave para romper la simetría y diseñar Layouts modernos tipo "BentoBox".
+- Vista de PC
+![03. grid column Vista pc](assets/03-Vpc.png)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Vista de dispositivo Movil
+![03. grid column Vista movil](assets/03Vmo.png)
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 0.4 GRID TEMPLATE COLUMNS (AUTO-FIT)
+Define el ancho exacto y la cantidad de columnas. Usando la técnica avanzada de "auto-fit" y "minmax", la cuadrícula es mágicamente responsiva sin usar prefijos como md: o lg:.
+- Vista de PC
+![04. grid template columns Vista pc](assets/04Vpc.png)
+- Vista de dispositivo Movil
+![04. grid template columns Vista movil](assets/04Vmo.png)
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -5,8 +5,9 @@ import { StudentsPage } from '../../../students/pages/students-page/students-pag
 
 @Component({
   selector: 'app-home-page',
-  imports: [Hero, StudentsPage],
+  imports: [Hero],
   templateUrl: './home-page.html',
+  styleUrl: './home-page.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {

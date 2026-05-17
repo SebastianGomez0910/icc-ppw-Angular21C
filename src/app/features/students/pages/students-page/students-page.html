@@ -1,12 +1,20 @@
-<h1>Students Page</h1>
-<p>selecciona el estudiante para ver su detalle.</p>
-<ul>
-    @for(estudiante of students(); track estudiante.id){
-        <li>
-            <!-- esta es una manera de navegar-->
-            <a [routerLink]="['/students', estudiante.id]">{{estudiante.name}}</a>
-        </li>
-    }@empty {
-        <li>Listaod VACIO</li>
+<section class="space-y-4">
+  <h1 class="test-3xl font-bold tracking-tight text-slate-900">Estudiantes</h1>
+  <p class="text-slate-600">Selecciona un estudiante para ver su detalle.</p>
+
+  <ul class="flex flex-col gap-3 list-none p-0">
+
+    @for (student of students(); track student.id) {
+      <li>
+
+        <a class="block px-4 py-3 bg-white border border-slate-200 rounded-lg text-brand no-underline font-medium transition hover:bg-slate-50 hover:border-brand" [routerLink]="['/students', student.id]">
+          {{ student.name }}
+        </a>
+      </li>
+
+    } @empty {
+      <li class="italic text-slate-500">No hay estudiantes disponibles.</li>
     }
-</ul>
+
+  </ul>
+</section>
