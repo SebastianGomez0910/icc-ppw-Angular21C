@@ -31,3 +31,10 @@ Define el ancho exacto y la cantidad de columnas. Usando la técnica avanzada de
 - Vista de dispositivo Movil
 ![04. grid template columns Vista movil](assets/04Vmo.png)
 
+# Parctica 05
+### 01.  formulario donde se muestre todos los errores
+![Todos los errores](assets/05-todo-error.png)
+![Todo el resto de errores](assets/05-todo-errordos.png)
+
+### 02. input email con el error de la valicación asincrona
+![Error de la validacion asincrona](assets/05-ya-existe.png)

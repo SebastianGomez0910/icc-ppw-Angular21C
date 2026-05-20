@@ -3,6 +3,7 @@ import { HomePage } from './features/home/pages/home-page/home-page';
 import { StudentsPage } from './features/students/pages/students-page/students-page';
 import { StudentDatailPage } from './features/students/pages/student-datail-page/student-datail-page';
 import { LayoutsPage } from './features/layouts/pages/layouts-page/layouts-page';
+import { SignupPage } from './features/signup-page/signup-page';
 
 export const routes: Routes = [
     {
@@ -20,6 +21,10 @@ export const routes: Routes = [
         {
         path:'layouts',
         component:LayoutsPage
+    },
+    {
+        path: 'signup',
+        component:SignupPage
     },
     {
         //ruta de redireccionamiento
