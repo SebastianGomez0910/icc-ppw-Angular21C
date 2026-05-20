@@ -38,3 +38,11 @@ Define el ancho exacto y la cantidad de columnas. Usando la técnica avanzada de
 
 ### 02. input email con el error de la valicación asincrona
 ![Error de la validacion asincrona](assets/05-ya-existe.png)
+
+# Practica 05 B
+
+### 0.1 formulario vacío mostrando el estado inicial
+![Formulario completo](assets/05-b1.png)
+
+### 0.2 formulario con todos los errores visibles (después de submit)
+![Formulario con errores](image-3.png)

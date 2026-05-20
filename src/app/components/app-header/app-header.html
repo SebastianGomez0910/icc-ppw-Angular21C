@@ -3,7 +3,7 @@
   <span class="app-header__brand">{{ brand() | uppercase }}</span>
 
 
-<nav class="app-header__nav">
+    <nav class="app-header__nav">
     <a class="nav-link"
         routerLink="/"
         routerLinkActive="nav-link--active"
@@ -27,6 +27,10 @@
         routerLinkActive="nav-link--active">
         Sing Up
     </a>
-</nav>
-
+        <a class="nav-link"
+        routerLink="/profile"
+        routerLinkActive="nav-link--active">
+        Profile
+    </a>
+    </nav>
 </header>
