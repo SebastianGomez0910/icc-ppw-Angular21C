@@ -46,3 +46,17 @@ Define el ancho exacto y la cantidad de columnas. Usando la técnica avanzada de
 
 ### 0.2 formulario con todos los errores visibles (después de submit)
 ![Formulario con errores](image-3.png)
+
+# Prcatica 5 C
+
+### 0.1 formulario vacío/inicial
+![alt text](assets/05c-fc.png)
+
+### 0.2  mostrando todos los errores de validación
+![alt text](assets/05c-errores.png)
+
+### 0.3 formulario válido y datos completos
+![alt text](assets/05c-valido.png)
+
+### 0.4 consola con el objeto `myForm.value` al hacer submit
+![alt text](image-4.png)

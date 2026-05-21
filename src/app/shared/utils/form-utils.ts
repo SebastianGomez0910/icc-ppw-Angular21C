@@ -16,13 +16,17 @@ export class FormUtils {
   }
 
   static getTextError(errors: ValidationErrors): string | null {
+
+
     for (const key of Object.keys(errors)) {
       switch (key) {
         case 'required':
           return 'Este campo es requerido';
+        case 'requiredTrue':
+          return 'Debe aceptar este campo   '
         case 'minlength':
           return `Mínimo ${errors['minlength'].requiredLength} caracteres`;
-        case 'maxlength':
+        case 'maxlength':   
           return `Máximo ${errors['maxlength'].requiredLength} caracteres`;
         case 'min':
           return `Valor mínimo: ${errors['min'].min}`;
