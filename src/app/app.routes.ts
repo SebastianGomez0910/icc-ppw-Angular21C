@@ -6,6 +6,9 @@ import { LayoutsPage } from './features/layouts/pages/layouts-page/layouts-page'
 import { SignupPage } from './features/signup-page/signup-page';
 import { ProfilePage } from './features/profile/pages/profile-page/profile-page';
 import { ProjectConfigPage } from './features/project/pages/project-config-page/project-config-page';
+import { UiComponentsPage } from './components/ui-components-page/ui-components-page';
+import { SimpsonPage } from './features/simpsons/pages/simpson-page/simpson-page';
+import { SimpsonDetailPage } from './features/simpsons/pages/simpson-detail-page/simpson-detail-page';
 
 export const routes: Routes = [
     {
@@ -35,6 +38,18 @@ export const routes: Routes = [
     {
         path: 'project-config',
         component: ProjectConfigPage
+    },
+    {
+        path:'ui-components',
+        component: UiComponentsPage
+    },
+    {
+        path: 'simpsons',
+        component: SimpsonPage
+    },
+    {
+        path: 'simpsons/:id',
+        component: SimpsonDetailPage
     },
     {
         //ruta de redireccionamiento
