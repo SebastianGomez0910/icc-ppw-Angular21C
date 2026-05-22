@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { SimpsonsCharacter, SimpsonsResponse } from '../models/simpsons.interface';
 import { HttpClient } from '@angular/common/http';
 import { catchError, delay, map, Observable, tap, throwError, timeout } from 'rxjs';
+import { environment } from '../../../../environments/environment.development';
 
 export interface Options{
   page?: number;
@@ -15,7 +16,7 @@ export interface Options{
 export class SimpsonsService {
 
   private http = inject(HttpClient);
-  private readonly baseUrl = 'https://thesimpsonsapi.com/api';
+  private readonly baseUrl = environment.apiUrl;
 
   getCharacters(page: number = 1): Observable<SimpsonsResponse> {
     return this.http

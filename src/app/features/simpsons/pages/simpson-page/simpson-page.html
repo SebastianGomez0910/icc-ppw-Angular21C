@@ -1,131 +1,160 @@
-<!-- Estado de carga -->
-@if (simpsonsResource.isLoading()) {
-<div class="flex justify-center items-center h-64">
-    <span class="loading loading-spinner loading-lg text-primary"></span>
-</div>
-}
+<section class="bg-base-200 py-10 px-8 min-h-screen">
 
-<!-- Estado de error -->
-@if (simpsonsResource.error()) {
-<div class="alert alert-error max-w-lg mx-auto mt-8">
-    <span>Error al cargar los personajes. Intenta de nuevo.</span>
-</div>
-}
+  <div class="max-w-6xl mx-auto">
 
-<!-- Estado de datos -->
-@if (simpsonsResource.hasValue()) {
-<div class="overflow-x-auto rounded-box border border-base-300 bg-base-100 shadow-sm">
-    <table class="table w-full">
-        <thead class="bg-base-200 text-base-content">
-            <tr>
-                <th class="w-16">#</th>
-                <th>Personaje</th>
-                <th>Ocupación</th>
-                <th class="text-center">Estado</th>
-            </tr>
-        </thead>
+    <!-- HERO -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-extrabold tracking-tight mb-2">
+        The Simpsons
+      </h1>
 
-        <tbody>
-            @for (char of simpsonsResource.value()!.results; track char.id) {
-            <tr class="hover:bg-base-200/60 transition-colors">
-                <td class="font-mono text-sm text-base-content/60">
-                    {{ char.id }}
-                </td>
+      <p class="text-base-content/60 text-lg">
+        Personajes de la serie — powered by The Simpsons API
+      </p>
+    </div>
 
-                <td>
-                    <div class="flex items-center gap-4 py-2">
-                        <div class="avatar">
-                            <div
-                                class="w-14 h-14 rounded-xl bg-base-200 ring ring-base-300 ring-offset-base-100 ring-offset-2">
-                                
-                                <a [routerLink]="['/simpsons', char.id]" class="avatar">
-                                    <div class="w-14 h-14 rounded-xl bg-base-200 ring ring-base-300 ring-offset-base-100 ring-offset-2">
-                                        <img
-                                        [src]="'https://cdn.thesimpsonsapi.com/500' + char.portrait_path"
-                                        [alt]="char.name"
-                                        class="object-cover"
-                                    />
-                                    </div>
+    <!-- LOADING -->
+    @if (simpsonsResource.isLoading()) {
+      <div class="flex justify-center items-center h-64">
+        <span class="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    }
 
-                                </a>
-                                
-                            </div>
-                        </div>
+    <!-- ERROR -->
+    @if (simpsonsResource.error()) {
+      <div class="alert alert-error mb-6">
+        <span>
+          Error al cargar los personajes
+        </span>
+      </div>
+    }
 
-                        <div class="min-w-0">
-                            <a [routerLink]="['/simpsons', char.id]" class="font-bold text-base link link-hover">
-                                <div class="font-bold text-base">
-                                    {{ char.name }}
-                                </div>
-                            </a>
-                            
+    <!-- DATA -->
+    @if (simpsonsResource.hasValue()) {
 
-                            <div class="text-xs text-base-content/60">
-                                Personaje de Los Simpson
-                            </div>
-                        </div>
-                    </div>
-                </td>
+      <!-- PAGINATION -->
+      <div class="flex items-center justify-between gap-4 mb-8">
 
-                <td>
-                    <span class="text-sm text-base-content/80">
-                        {{ char.occupation || 'Sin ocupación registrada' }}
-                    </span>
-                </td>
+        <span class="text-sm text-base-content/60">
+          Página {{ paginationService.currentPage() }}
+          de {{ simpsonsResource.value()!.pages }}
+        </span>
 
-                <td class="text-center">
-                    <span
-                        class="badge badge-sm font-medium"
-                        [class.badge-success]="char.status === 'Alive'"
-                        [class.badge-error]="char.status === 'Deceased'"
-                        [class.badge-warning]="char.status !== 'Alive' && char.status !== 'Dead'"
-                    >
-                        {{ char.status || 'Desconocido' }}
-                    </span>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</div>
-}
-<div class="flex items-center justify-between gap-4 mb-6">
+        <div class="join">
 
-  <span class="text-sm text-base-content/60">
-    Página {{ paginationService.currentPage() }}
-    de {{ simpsonsResource.value()!.pages }}
-  </span>
+          <!-- PREV -->
+          <a
+            class="join-item btn btn-sm"
+            [class.btn-disabled]="paginationService.currentPage() <= 1"
+            [routerLink]="[]"
+            [queryParams]="{
+              page: paginationService.currentPage() - 1
+            }"
+          >
+            «
+          </a>
 
-  <div class="join">
+          <!-- CURRENT -->
+          <button class="join-item btn btn-sm btn-active">
+            {{ paginationService.currentPage() }}
+          </button>
 
-    <a
-      class="join-item btn btn-sm"
-      [class.btn-disabled]="paginationService.currentPage() <= 1"
-      [routerLink]="[]"
-      [queryParams]="{
-        page: paginationService.currentPage() - 1
-      }"
-    >
-      «
-    </a>
+          <!-- NEXT -->
+          <a
+            class="join-item btn btn-sm"
+            [class.btn-disabled]="
+              paginationService.currentPage() >=
+              simpsonsResource.value()!.pages
+            "
+            [routerLink]="[]"
+            [queryParams]="{
+              page: paginationService.currentPage() + 1
+            }"
+          >
+            »
+          </a>
 
-    <button class="join-item btn btn-sm btn-active">
-      {{ paginationService.currentPage() }}
-    </button>
+        </div>
+      </div>
 
-    <a
-      class="join-item btn btn-sm"
-      [class.btn-disabled]="
-        paginationService.currentPage() >=
-        simpsonsResource.value()!.pages
-      "
-      [routerLink]="[]"
-      [queryParams]="{
-        page: paginationService.currentPage() + 1
-      }"
-    >
-      »
-    </a>
+      <!-- EMPTY -->
+      @if (simpsonsResource.value()!.results.length === 0) {
+
+        <div class="text-center py-20">
+
+          <p class="text-2xl font-bold mb-2">
+            Sin resultados
+          </p>
+
+          <p class="text-base-content/50">
+            No se encontraron personajes
+          </p>
+
+        </div>
+
+      } @else {
+
+        <!-- CARDS -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
+
+          @for (
+            char of simpsonsResource.value()!.results;
+            track char.id
+          ) {
+
+            <a
+              [routerLink]="['/simpsons', char.id]"
+              class="card bg-base-100 shadow hover:shadow-xl transition-all duration-300 cursor-pointer border border-base-300"
+            >
+
+              <!-- IMAGE -->
+              <figure class="pt-6">
+
+                <img
+                  [src]="'https://cdn.thesimpsonsapi.com/500' + char.portrait_path"
+                  [alt]="char.name"
+                  class="w-28 h-28 rounded-full object-cover ring-4 ring-primary/20"
+                />
+
+              </figure>
+
+              <!-- BODY -->
+              <div class="card-body items-center text-center">
+
+                <h2 class="card-title text-sm">
+                  {{ char.name }}
+                </h2>
+
+                <p class="text-xs text-base-content/60 min-h-[40px]">
+                  {{ char.occupation || 'Sin ocupación' }}
+                </p>
+
+                <span
+                  class="badge badge-sm mt-2"
+                  [class.badge-success]="char.status === 'Alive'"
+                  [class.badge-error]="char.status === 'Deceased'"
+                  [class.badge-warning]="
+                    char.status !== 'Alive' &&
+                    char.status !== 'Deceased'
+                  "
+                >
+                  {{ char.status }}
+                </span>
+
+              </div>
+
+            </a>
+
+          }
+
+        </div>
+
+      }
+
+    }
 
   </div>
-</div>
+
+</section>
