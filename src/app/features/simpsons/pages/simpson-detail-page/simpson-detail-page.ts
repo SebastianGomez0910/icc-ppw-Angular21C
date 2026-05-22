@@ -9,7 +9,6 @@ import { of, tap } from 'rxjs';
   selector: 'app-simpson-detail-page',
   imports: [RouterLink],
   templateUrl: './simpson-detail-page.html',
-  styleUrl: './simpson-detail-page.css',
 })
 export class SimpsonDetailPage {
 
