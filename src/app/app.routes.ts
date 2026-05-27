@@ -9,6 +9,7 @@ import { ProjectConfigPage } from './features/project/pages/project-config-page/
 import { UiComponentsPage } from './components/ui-components-page/ui-components-page';
 import { SimpsonPage } from './features/simpsons/pages/simpson-page/simpson-page';
 import { SimpsonDetailPage } from './features/simpsons/pages/simpson-detail-page/simpson-detail-page';
+import { AuthPage } from './features/auth/pages/auth-page/auth-page';
 
 export const routes: Routes = [
     {
@@ -50,6 +51,10 @@ export const routes: Routes = [
     {
         path: 'simpsons/:id',
         component: SimpsonDetailPage
+    },
+    {
+        path: 'auth',
+        component: AuthPage
     },
     {
         //ruta de redireccionamiento
